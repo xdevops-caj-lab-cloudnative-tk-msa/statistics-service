@@ -208,7 +208,7 @@ mvn spring-boot:run -DskipTests -Dspring.profiles.active=local
 
 ## 实现一个exchange rate service
 
-因为程序中原来使用的https://api.exchangeratesapi.io需要有API_KEY才能访问。
+因为程序中原来使用的https://api.exchangeratesapi.io 需要有API_KEY才能访问。
 
 因此需要实现一个exchange rate service，用于测试时获取汇率信息。
 
