@@ -245,6 +245,11 @@ CMD java -jar /opt/app.jar
 EXPOSE 8080
 ```
 
+先构建应用（本例忽略单元测试）：
+```bash
+mvn clean install -DskipTests
+```
+
 构建容器镜像：
 
 ```bash
@@ -264,13 +269,12 @@ podman push quay.io/xxx/statistics-service:latest
 
 在piggymeticrs-config仓库中集中管理多个微服务的Kubernetes YAML。
 
-### 部署MongoDB
+创建Kubernetes Secret，包括：
+- MONGODB_URI
+- STATISTICS_SERVICE_PASSWORD (值同auth-service的STATISTICS_SERVICE_PASSWORD)
 
-TODO 使用Helm部署bitnami/mongodb
-
-### 部署应用
-
-TODO Kubernetes deployment, confimap, secret, service
+创建Kubernetes ConfigMap，包括：
+- RATES_URL (值为exchange-rate的exchangerate的API URL)
 
 
 ## Troubleshooting

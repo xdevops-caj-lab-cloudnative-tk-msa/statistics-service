@@ -22,3 +22,11 @@ server:
 
 rates:
   url: ${RATES_URL:http://exchange-rate:8080/exchangerates}
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
